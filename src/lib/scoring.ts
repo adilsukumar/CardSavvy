@@ -110,7 +110,7 @@ function parseWelcomeBonus(bonus: string): number {
   if (!bonus) return 0;
 
   // Extract numbers from bonus string
-  const numbers = bonus.match(/[\d,]+/g);
+  const numbers = bonus.match(/\d[\d,]*/g);
   if (!numbers) return 0;
 
   const value = parseInt(numbers[0].replace(/,/g, ""), 10);

@@ -45,7 +45,7 @@ export function Sidebar() {
             <Sparkles className="h-12 w-12" />
           </div>
           <p className="text-xs font-medium text-foreground relative z-10">
-            Data sources are aggregated from live community feeds.
+            Bundled card catalogue with optional community-offer imports.
           </p>
           <p className="mt-2 text-[10px] text-muted-foreground relative z-10">
             Verify terms with the issuer before applying.

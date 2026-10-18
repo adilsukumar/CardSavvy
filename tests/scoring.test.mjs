@@ -13,6 +13,7 @@ async function sourceModule(path) {
 
 const scoring = await sourceModule("../src/lib/scoring.ts");
 const dates = await sourceModule("../src/data/types.ts");
+const catalogue = await sourceModule("../src/data/cards.ts");
 const base = {
   id: "fixture",
   name: "Fixture",
@@ -66,5 +67,15 @@ test("scores stay within their documented bounds for catalogue fixtures", () => 
   for (const fee of [0, 35, 1000, 100000]) {
     const score = scoring.optimizerScore({ ...base, annualFee: fee }, "travel");
     assert.ok(Number.isFinite(score) && score >= 0 && score <= 100);
+  }
+});
+
+test("every bundled card has a finite score in every ranking category", () => {
+  const categories = [undefined, "travel", "lounge", "cashback", "dining", "fuel", "online", "groceries", "no-annual-fee", "beginner", "luxury"];
+  for (const card of catalogue.CARDS) {
+    for (const category of categories) {
+      const score = scoring.optimizerScore(card, category);
+      assert.ok(Number.isFinite(score) && score >= 0 && score <= 100, `${card.id}: ${category} score ${score}`);
+    }
   }
 });
