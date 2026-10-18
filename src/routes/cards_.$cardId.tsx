@@ -36,7 +36,7 @@ export const Route = createFileRoute("/cards_/$cardId")({
   ),
   errorComponent: ({ error }) => (
     <div className="mx-auto max-w-3xl px-4 py-16 text-center">
-      <p className="text-destructive">{error.message}</p>
+      <p className="text-destructive">{error instanceof Error ? error.message : "Unable to load this card."}</p>
     </div>
   ),
   component: CardDetail,

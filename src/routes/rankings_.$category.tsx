@@ -44,7 +44,7 @@ export const Route = createFileRoute("/rankings_/$category")({
       </Link>
     </div>
   ),
-  errorComponent: ({ error }) => <div className="p-8 text-destructive">{error.message}</div>,
+  errorComponent: ({ error }) => <div className="p-8 text-destructive">{error instanceof Error ? error.message : "Unable to load these rankings."}</div>,
   component: CategoryRanking,
 });
 

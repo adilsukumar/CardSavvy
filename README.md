@@ -2,6 +2,10 @@
 
 A credit-card comparison and wallet prototype by Adil Sukumar. Browse a bundled catalogue by country, category and benefits; compare cards, inspect transparent heuristic rankings, and keep wallet/spending/application records in your browser.
 
+**[Open the live application](https://cardsavvy-adil-sukumar.vercel.app/)**
+
+Built by [Adil Sukumar](https://www.adilsukumar.xyz/).
+
 ## Run locally
 
 Use Node.js 22 or later and npm:
@@ -25,6 +29,12 @@ npm run build
 ```
 
 The app uses React, TypeScript, TanStack Start/Router, Tailwind CSS and Radix/shadcn components. The production build produces a server-rendered application; deploy to a compatible server/adapter, not a static-only host without configuring an export.
+
+## Deploy to Vercel
+
+Import this repository into Vercel, use Node.js 22 or later, and keep the build command `npm run build`. The Nitro adapter in `vite.config.ts` emits the Vercel Build Output API layout in `.vercel/output`, including server functions. The local catalogue works without secrets; configure optional integrations only through server/project environment settings. Never commit `.vercel`, build output or credentials.
+
+The public deployment keeps optional AI chat and database services unconfigured. Rankings, filters, comparison, card detail pages and the browser-local wallet remain usable.
 
 ## What the rankings mean
 

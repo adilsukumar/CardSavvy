@@ -6,7 +6,7 @@ import { CARDS } from "../../data/cards";
 import * as cheerio from "cheerio";
 
 export const askChatbot = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) =>
+  .validator((data: unknown) =>
     z
       .object({
         messages: z
